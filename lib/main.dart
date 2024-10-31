@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_todo_app/provider/todo_provider.dart';
 import 'package:flutter_todo_app/screens/home.dart';
+import 'package:flutter_todo_app/services/todo_services.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -17,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.transparent));
-    return ChangeNotifierProvider(create: (_) => ToDoProvider(),
+    return ChangeNotifierProvider(create: (_) => ToDoProvider(service: TodoService()),
      child: MaterialApp(     
       home: Home(),
     )
